@@ -1,0 +1,11 @@
+ACKNOWLEDGEMENTS
+----------------
+Many thanks to Derek O'Connell (doc@doconnel.f9.co.uk) for writing both the camera and pulseaudio plugins for Scratch. 
+
+Benjamin Mako Hill <mako@atdot.cc>, Amos Blanton (amos@scratch.mit.edu), Reza Iskandar Achmad (mal_comx@yahoo.com), and Andrés Monroy-Hernández (andresmh@media.mit.edu) contributed time and effort to create this debian package of Scratch.
+
+From the earliest release of Scratch in early 2007, 
+David Thornburg (dthornburg@aol.com) has hosted a tar.gz file 
+for Linux users on his website, along with notes on how to use it. 
+It has taken us much longer to release a Linux package than expected. 
+Thanks for your patience, David!
