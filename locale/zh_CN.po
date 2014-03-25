@@ -1921,3 +1921,41 @@ msgstr "木鱼"
 msgid "Xylophone"
 msgstr "木琴"
 
+msgid "pin"
+msgstr "引脚"
+
+msgid "hardware"
+msgstr "硬件(pcDuino)"
+
+msgid "HIGH"
+msgstr "高"
+
+msgid "LOW"
+msgstr "低"
+
+msgid "INPUT"
+msgstr "输入"
+
+msgid "OUTPUT"
+msgstr "输出"
+
+msgid "(for pcDuino)"
+msgstr "(仅支持pcDuino)"
+
+msgid "set pin %F to %A mode"
+msgstr "设置引脚 %F 为 %A 模式" 
+
+msgid "set pin %F to %B level"
+msgstr "设置引脚 %F 为 %B 电平"
+
+msgid "pin %F level is %B ?   "
+msgstr "引脚 %F 电平为 %B 吗? "
+
+msgid "Voltage (mV) of pin %E "
+msgstr "引脚 %E 的电压(毫伏)"
+
+msgid "set pwm%G%jHz%Jstep"
+msgstr "设置PWM引脚 %G 频率为 %j Hz,级数为 %J"
+
+msgid "stop pwm%G"
+msgstr "关闭PWM引脚 %G"

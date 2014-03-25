@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=Scratch
 Comment= Programming system and content development tool
-Exec=scratch
+Exec=sudo scratch
 Terminal=false
 Type=Application
-Icon=scratch
+Icon=/usr/share/scratch/scratch.png
 Categories=Development;
 MimeType=application/x-scratch-project
