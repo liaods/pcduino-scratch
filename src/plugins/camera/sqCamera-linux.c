@@ -99,12 +99,26 @@ static void process_image1 (const void *p) {
 	}
 }
 
+/* add by liaods yuyv_to_rgb32  */
+static void process_image_yuyv_to_rgb32(const void *p) {
+
+	char sqBuffer1[bmWidth*bmHeight*4];
+	v4lconvert_yuyv_to_rgb24(p, &sqBuffer1,bmWidth, bmHeight);
+	process_image1(&sqBuffer1);
+}
+
+
 /* No converson if libv4l supplies ARGB32 */
 static void process_image (const void *p) {
+	/* FIXME: by liaods, hard coded */
+	process_image_yuyv_to_rgb32(p);
+	return;
+
 	if (0 == sqBuffer)
 		return;
 
-	memcpy(sqBuffer, (char *)p, sqPixels * 4);
+	//memcpy(sqBuffer, (char *)p, sqPixels * 4);
+	memcpy(sqBuffer, (char *)p, sqPixels * 2);
 }
 
 static int read_frame (void) {
@@ -347,8 +361,8 @@ static int init_device (int w, int h) {
 	fmt.type		= V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	fmt.fmt.pix.width	= w;
 	fmt.fmt.pix.height	= h;
-	fmt.fmt.pix.pixelformat	= V4L2_PIX_FMT_RGB32;
-	fmt.fmt.pix.field	= V4L2_FIELD_INTERLACED;
+	fmt.fmt.pix.pixelformat	= V4L2_PIX_FMT_YUYV; //V4L2_PIX_FMT_RGB32;
+	fmt.fmt.pix.field	= V4L2_FIELD_NONE; //V4L2_FIELD_INTERLACED;
 
 	if (-1 == xioctl (fd, VIDIOC_S_FMT, &fmt)) {
 		return -1;
@@ -356,7 +370,8 @@ static int init_device (int w, int h) {
 
 	/* Note VIDIOC_S_FMT may change width and height. */
 
-	if ((w != fmt.fmt.pix.width) | (h != fmt.fmt.pix.height) | (V4L2_PIX_FMT_RGB32 != fmt.fmt.pix.pixelformat)) {
+	//if ((w != fmt.fmt.pix.width) | (h != fmt.fmt.pix.height) | (V4L2_PIX_FMT_RGB32 != fmt.fmt.pix.pixelformat)) {
+	if ((w != fmt.fmt.pix.width) | (h != fmt.fmt.pix.height) | (V4L2_PIX_FMT_YUYV != fmt.fmt.pix.pixelformat)) {
 		return -1;
 	}
 
